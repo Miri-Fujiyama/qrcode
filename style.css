@@ -29,6 +29,26 @@ h1 {
     box-sizing: border-box;
 }
 
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group label {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#color-input {
+    padding: 0;
+    border: none;
+    background: none;
+    width: 40px;
+    height: 40px;
+}
+
 #generate-btn {
     padding: 10px 20px;
     border: none;
@@ -50,4 +70,20 @@ h1 {
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
+}
+
+.btn-download {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-download:hover {
+    background-color: #218838;
 }

@@ -10,8 +10,15 @@
     <div class="container">
         <h1>QRコード作成機</h1>
         <input type="text" id="text-input" placeholder="QRコードにしたいテキストを入力">
+        <div class="input-group">
+            <label for="color-dark-input">QRコードの色:</label>
+            <input type="color" id="color-dark-input" value="#000000">
+            <label for="color-light-input">背景の色:</label>
+            <input type="color" id="color-light-input" value="#ffffff">
+        </div>
         <button id="generate-btn">QRコードを生成</button>
         <div id="qrcode-container"></div>
+        <button id="download-btn" class="btn-download" style="display: none;">画像をダウンロード</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
     <script src="script.js"></script>
