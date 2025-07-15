@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRコード作成機</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>QRコード作成機</h1>
+        <h1>QR Code Generator</h1>
+        <p class="description">テキストやURLを入力して、オリジナルのQRコードを作成しましょう。</p>
+        
         <input type="text" id="text-input" placeholder="QRコードにしたいテキストを入力">
+        
         <div class="input-group">
-            <label for="color-dark-input">QRコードの色:</label>
-            <input type="color" id="color-dark-input" value="#000000">
-            <label for="color-light-input">背景の色:</label>
-            <input type="color" id="color-light-input" value="#ffffff">
+            <div class="color-picker-wrapper">
+                <label for="color-dark-input">コードの色</label>
+                <input type="color" id="color-dark-input" value="#000000">
+            </div>
+            <div class="color-picker-wrapper">
+                <label for="color-light-input">背景の色</label>
+                <input type="color" id="color-light-input" value="#ffffff">
+            </div>
         </div>
-        <button id="generate-btn">QRコードを生成</button>
+
+        <div class="logo-upload-wrapper">
+            <label for="logo-input" class="logo-upload-btn"><i class="fa-solid fa-image"></i> ロゴを選択</label>
+            <input type="file" id="logo-input" accept="image/*">
+            <div id="logo-preview-container" style="display: none;">
+                <img id="logo-preview" src="" alt="Logo Preview">
+                <button id="remove-logo-btn"><i class="fa-solid fa-times"></i></button>
+            </div>
+        </div>
+        
+        <button id="generate-btn"><i class="fa-solid fa-qrcode"></i> QRコードを生成</button>
+        
         <div id="qrcode-container"></div>
-        <button id="download-btn" class="btn-download" style="display: none;">画像をダウンロード</button>
+        
+        <button id="download-btn" class="btn-download" style="display: none;"><i class="fa-solid fa-download"></i> 画像をダウンロード</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
     <script src="script.js"></script>

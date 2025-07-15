@@ -1,89 +1,202 @@
+:root {
+    --primary-color: #4a90e2;
+    --primary-hover-color: #357abd;
+    --secondary-color: #50e3c2;
+    --secondary-hover-color: #38d1b0;
+    --background-color: #f7f9fc;
+    --card-background-color: #ffffff;
+    --text-color: #333333;
+    --subtle-text-color: #888888;
+    --border-color: #e0e0e0;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .container {
     text-align: center;
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: var(--card-background-color);
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 480px;
+    box-sizing: border-box;
 }
 
 h1 {
-    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.description {
+    color: var(--subtle-text-color);
+    margin-bottom: 30px;
 }
 
 #text-input {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.input-group {
+#text-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.logo-upload-wrapper {
     margin-bottom: 20px;
+}
+
+.logo-upload-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logo-upload-btn:hover {
+    background-color: #e0e0e0;
+}
+
+#logo-input {
+    display: none;
+}
+
+#logo-preview-container {
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
-.input-group label {
-    margin-right: 10px;
-    margin-left: 10px;
+#logo-preview {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 4px;
 }
 
-#color-input {
+#remove-logo-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.color-picker-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-picker-wrapper label {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--subtle-text-color);
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 50px;
     padding: 0;
     border: none;
-    background: none;
-    width: 40px;
-    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    transition: transform 0.2s;
+}
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+input[type="color"]:hover {
+    transform: scale(1.1);
+}
+
+#generate-btn, .btn-download {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 #generate-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
-    border-radius: 5px;
-    cursor: pointer;
     margin-bottom: 20px;
 }
 
 #generate-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+.btn-download {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-download:hover {
+    background-color: var(--secondary-hover-color);
+    transform: translateY(-2px);
 }
 
 #qrcode-container {
     width: 256px;
     height: 256px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
+    margin: 20px auto;
+    border: 1px solid var(--border-color);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: transform 0.5s, opacity 0.5s;
+    transform: scale(0.9);
+    opacity: 0;
 }
 
-.btn-download {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
+#qrcode-container.show {
+    transform: scale(1);
+    opacity: 1;
 }
 
-.btn-download:hover {
-    background-color: #218838;
+#qrcode-container canvas {
+    border-radius: 4px;
 }
